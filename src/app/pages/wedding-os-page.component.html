@@ -1,0 +1,147 @@
+<section class="work-hero">
+  <div class="work-hero-grain" aria-hidden="true"></div>
+  <div class="shell work-hero-layout">
+    <div class="work-hero-copy">
+      <a class="work-back-link" routerLink="/">← Back to the studio</a>
+      <span class="eyebrow"><span class="eyebrow-dot"></span> FEATURED PROJECT · WEDDING WEBSITE</span>
+      <h1>A wedding website<br>with a little more <em>feeling.</em></h1>
+      <p class="work-hero-lede">WeddingOS began as a real wedding project: an invitation that could do more than announce a date. It brings the celebration, its events and the little guest details together in one thoughtful, mobile-first experience.</p>
+      <div class="work-hero-actions">
+        <a class="button button--primary" routerLink="/start" [queryParams]="{ design: 'WeddingOS-inspired wedding website', package: 'full-story', occasion: 'Weddings' }">Make something like this <span aria-hidden="true">↗</span></a>
+        <a class="work-text-link" href="#inside-wedding-os">Explore the project <span aria-hidden="true">↓</span></a>
+        @if (liveDemoUrl) {
+          <a class="work-text-link" [href]="liveDemoUrl" target="_blank" rel="noopener">Open the live WeddingOS site <span aria-hidden="true">↗</span></a>
+        }
+      </div>
+      <div class="work-project-meta">
+        <div><span>THE PROJECT</span><strong>WeddingOS</strong></div>
+        <div><span>DESIGNED FOR</span><strong>A multi-event celebration</strong></div>
+        <div><span>BUILT AROUND</span><strong>Mobile-first storytelling</strong></div>
+      </div>
+    </div>
+
+    <div class="work-hero-visual" aria-label="Illustrated preview of a wedding invitation website">
+      <div class="work-orbit work-orbit--one" aria-hidden="true"></div>
+      <div class="work-orbit work-orbit--two" aria-hidden="true"></div>
+      <div class="work-note work-note--top"><span>✳</span><span>Every event,<br><em>one lovely place.</em></span></div>
+      <div class="work-desktop-frame">
+        <div class="work-window-bar"><span></span><span></span><span></span><small>wedding-os / invitation</small></div>
+        <div class="work-desktop-content">
+          <div class="work-demo-kicker">TOGETHER WITH OUR FAMILIES</div>
+          <div class="work-demo-monogram">S <i>&</i> A</div>
+          <div class="work-demo-names">A new chapter<br><em>begins here.</em></div>
+          <div class="work-demo-date">A CELEBRATION OF LOVE · HYDERABAD</div>
+          <div class="work-demo-florals" aria-hidden="true"><span>✳</span><i></i><b></b><span>✳</span></div>
+          <div class="work-demo-bottom"><span>THE WEDDING WEEKEND</span><span>SCROLL TO EXPLORE ↓</span></div>
+        </div>
+      </div>
+      <div class="work-phone-frame">
+        <div class="work-phone-notch"></div>
+        <div class="work-phone-content">
+          <div class="phone-topline"><span>✳ WEDDINGOS</span><span>☰</span></div>
+          <div class="phone-date">A LITTLE NOTE FROM US</div>
+          <div class="phone-monogram">S <i>&</i> A</div>
+          <div class="phone-names">Save the date<br><em>for our forever.</em></div>
+          <div class="phone-rule"><span>✳</span></div>
+          <div class="phone-details">THREE GATHERINGS<br>ONE VERY HAPPY WEEKEND</div>
+          <div class="phone-button">OPEN THE INVITATION ↗</div>
+        </div>
+      </div>
+      <div class="work-note work-note--bottom"><span class="work-note-line"></span><span>MADE TO FEEL<br>LIKE <em>THEM.</em></span></div>
+      <span class="work-visual-index">A REAL PROJECT, REIMAGINED AS A CASE STUDY · 001</span>
+    </div>
+  </div>
+  <div class="shell work-hero-bottom"><span>INVITATION, EVENT GUIDE AND RSVP</span><span aria-hidden="true">✳</span><span>THOUGHTFULLY BUILT FOR MOBILE</span></div>
+</section>
+
+<section class="work-story section-pad" id="inside-wedding-os">
+  <div class="shell">
+    <div class="section-heading section-heading--split">
+      <div><span class="eyebrow"><span class="eyebrow-dash"></span> INSIDE WEDDINGOS</span><h2>More than an invite.<br><em>A little home for the day.</em></h2></div>
+      <p>The idea was to make the guest experience feel considered from the first tap: a warm welcome, clear event details and a simple way to respond.</p>
+    </div>
+
+    <div class="wos-playground">
+      <div class="wos-play-copy">
+        <span class="wos-play-kicker">TAKE A LITTLE LOOK AROUND</span>
+        <h3>Three parts of<br><em>the same story.</em></h3>
+        <p>Choose a screen to see how a custom invitation can move from the first hello to the practical details guests need.</p>
+        <div class="wos-view-picker" role="group" aria-label="WeddingOS preview screens">
+          <button type="button" [class.wos-view-button--active]="activeView === 'invitation'" [attr.aria-pressed]="activeView === 'invitation'" (click)="selectView('invitation')"><span>01</span><span><strong>The invitation</strong><small>The first impression</small></span><b aria-hidden="true">↗</b></button>
+          <button type="button" [class.wos-view-button--active]="activeView === 'events'" [attr.aria-pressed]="activeView === 'events'" (click)="selectView('events')"><span>02</span><span><strong>The event timeline</strong><small>Every plan in one place</small></span><b aria-hidden="true">↗</b></button>
+          <button type="button" [class.wos-view-button--active]="activeView === 'rsvp'" [attr.aria-pressed]="activeView === 'rsvp'" (click)="selectView('rsvp')"><span>03</span><span><strong>The RSVP flow</strong><small>Simple for guests</small></span><b aria-hidden="true">↗</b></button>
+        </div>
+        <div class="wos-play-footnote"><span>✳</span><p>This is an interactive concept preview based on the WeddingOS project, not a live guest-management system.</p></div>
+      </div>
+
+      <div class="wos-device-area">
+        <div class="wos-device-halo" aria-hidden="true"></div>
+        <div class="wos-device">
+          <div class="wos-device-notch"></div>
+          <div class="wos-device-screen">
+            <ng-container>
+              @if (activeView === 'invitation') {
+                <div class="wos-screen-invitation">
+                  <div class="wos-screen-nav"><span>✳ WEDDINGOS</span><span>MENU ☰</span></div>
+                  <div class="wos-screen-date">WITH FULL HEARTS & HAPPY TEARS</div>
+                  <div class="wos-screen-monogram">S <i>&</i> A</div>
+                  <h4>We're getting<br><em>married.</em></h4>
+                  <div class="wos-screen-art"><span class="screen-sun"></span><span class="screen-arch"></span><span class="screen-stem screen-stem--one"></span><span class="screen-stem screen-stem--two"></span><span class="screen-flower">✳</span></div>
+                  <p class="wos-screen-date">DECEMBER · HYDERABAD</p>
+                  <div class="wos-screen-cta">LET'S CELEBRATE <span>↗</span></div>
+                </div>
+              } @else if (activeView === 'events') {
+                <div class="wos-screen-events">
+                  <div class="wos-screen-nav"><span>✳ OUR CELEBRATION</span><span>✳</span></div>
+                  <div class="wos-events-heading"><span>THE DAYS WE'LL REMEMBER</span><h4>Come for the<br><em>love, stay for the fun.</em></h4><p>Three gatherings. One big, happy story.</p></div>
+                  <div class="wos-timeline">
+                    <article class="wos-timeline-card wos-timeline-card--haldi"><span>01 · THE COLOURFUL ONE</span><strong>Haldi</strong><small>Warm hugs, marigolds & sunshine</small><i>✳</i></article>
+                    <div class="wos-timeline-connector"><span></span><b>↓</b></div>
+                    <article class="wos-timeline-card wos-timeline-card--party"><span>02 · WHEN THE LIGHTS COME ON</span><strong>Afterparty</strong><small>Good music, better company</small><i>♫</i></article>
+                    <div class="wos-timeline-connector"><span></span><b>↓</b></div>
+                    <article class="wos-timeline-card wos-timeline-card--wedding"><span>03 · THE BIG YES</span><strong>The Wedding</strong><small>Our favourite people, all together</small><i>♡</i></article>
+                  </div>
+                  <div class="wos-screen-cta">EVENT DETAILS <span>↗</span></div>
+                </div>
+              } @else {
+                <div class="wos-screen-rsvp">
+                  <div class="wos-screen-nav"><span>✳ A NOTE FOR OUR GUESTS</span><span>♡</span></div>
+                  <div class="wos-rsvp-intro"><span>WE HOPE YOU CAN MAKE IT</span><h4>Will you be<br><em>joining us?</em></h4><p>Let us know so we can save you a little spot.</p></div>
+                  <div class="wos-rsvp-field"><span>YOUR NAME</span><div>Enter your name <b>✎</b></div></div>
+                  <div class="wos-rsvp-field"><span>WILL YOU BE COMING?</span><div class="wos-rsvp-options"><b>○ &nbsp; Happily, yes</b><b>○ &nbsp; Can't make it</b></div></div>
+                  <div class="wos-rsvp-field"><span>HOW MANY GUESTS?</span><div>1 guest <b>⌄</b></div></div>
+                  <div class="wos-rsvp-submit">SEND OUR REPLY <span>↗</span></div>
+                  <p class="wos-rsvp-note">Just enough details to help the hosts plan with care.</p>
+                </div>
+              }
+            </ng-container>
+          </div>
+        </div>
+        <span class="wos-device-caption">INTERACTIVE PREVIEW · {{ activeView === 'invitation' ? 'THE FIRST HELLO' : activeView === 'events' ? 'THE RUN OF SHOW' : 'THE GUEST REPLY' }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work-details-section section-pad">
+  <div class="shell">
+    <div class="section-heading section-heading--center section-heading--narrow"><span class="eyebrow"><span class="eyebrow-dash"></span> WHAT THIS PROJECT TAUGHT US <span class="eyebrow-dash"></span></span><h2>Little details do<br><em>a lot of heavy lifting.</em></h2><p>WeddingOS is a useful example of the kind of thinking we bring to custom invitation websites: thoughtful visuals, practical information and a guest experience built around a phone screen.</p></div>
+    <div class="work-value-grid">
+      <article><span class="work-value-number">01</span><div class="work-value-icon work-value-icon--one" aria-hidden="true">✳</div><h3>A distinct visual world</h3><p>A cohesive palette, expressive type and a theme that carries through each part of the celebration.</p></article>
+      <article><span class="work-value-number">02</span><div class="work-value-icon work-value-icon--two" aria-hidden="true">↗</div><h3>Made for real phones</h3><p>Clear sections, comfortable tap targets and a layout guests can use without thinking twice.</p></article>
+      <article><span class="work-value-number">03</span><div class="work-value-icon work-value-icon--three" aria-hidden="true">♡</div><h3>Pretty and practical</h3><p>Event schedules and RSVP details are part of the experience, not an afterthought tucked away in a message.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="work-process-band">
+  <div class="shell work-process-inner"><div><span class="eyebrow eyebrow--light"><span class="eyebrow-dot"></span> THE MORROW APPROACH</span><h2>Keep the feeling.<br><em>Make the details easy.</em></h2></div><p>Every celebration has its own character. We start with that, then build the right mix of visual storytelling and useful details around it.</p><a class="button button--cream" routerLink="/start" [queryParams]="{ design: 'WeddingOS-inspired wedding website', package: 'full-story', occasion: 'Weddings' }">Start your own project <span aria-hidden="true">↗</span></a></div>
+</section>
+
+<section class="work-final-cta section-pad">
+  <div class="shell work-final-inner"><span class="work-final-star" aria-hidden="true">✳</span><span class="eyebrow"><span class="eyebrow-dash"></span> YOUR CELEBRATION, YOUR STORY</span><h2>WeddingOS was one story.<br><em>What's yours?</em></h2><p>A wedding, a birthday, a housewarming or an event that doesn't fit a neat little box. Let's make an invitation that feels like it belongs to you.</p><div class="work-final-actions"><a class="button button--primary" routerLink="/start">Tell us what you're planning <span aria-hidden="true">↗</span></a><a class="work-text-link" routerLink="/explore">Browse more designs <span aria-hidden="true">→</span></a></div>
+    @if (liveDemoUrl) {
+      <a class="live-demo-link" [href]="liveDemoUrl" target="_blank" rel="noopener">Visit the live WeddingOS website <span aria-hidden="true">↗</span></a>
+    }
+  </div>
+</section>

@@ -1,0 +1,39 @@
+<section class="preview-page section-pad">
+  <div class="shell">
+    <div class="preview-topline"><a routerLink="/explore">← Back to the collection</a><span>DESIGN STUDY / {{ invitation.index }}</span></div>
+    <div class="preview-intro"><span class="eyebrow"><span class="eyebrow-dot"></span> A LITTLE DEMO YOU CAN PLAY WITH</span><h1>Let's make it feel<br><em>like yours.</em></h1><p>Change the words, try a new colour story, open the invite and see how it feels. This is your little sandbox.</p></div>
+    <div class="preview-workspace">
+      <div class="preview-controls">
+        <div class="control-heading"><span class="control-step">01</span><div><h2>Make it personal</h2><p>Try out the details below.</p></div></div>
+        <label class="field-label" for="preview-title">Names or headline</label>
+        <input id="preview-title" class="text-field" type="text" [(ngModel)]="previewTitle" maxlength="48" placeholder="Your names or event title">
+        <label class="field-label" for="preview-date">Date line</label>
+        <input id="preview-date" class="text-field" type="text" [(ngModel)]="previewDate" maxlength="48" placeholder="SATURDAY · 3 PM">
+        <div class="palette-control"><span class="field-label">Try a colour story</span><div class="palette-options">
+          <button *ngFor="let palette of palettes" type="button" class="palette-option" [class.palette-option--active]="selectedPalette.name === palette.name" [attr.aria-label]="'Use ' + palette.name + ' palette'" [attr.aria-pressed]="selectedPalette.name === palette.name" (click)="selectPalette(palette)"><span class="palette-swatch" [style.background]="palette.paper"><i [style.background]="palette.accent"></i><i [style.background]="palette.wash"></i></span><span>{{ palette.name }}</span></button>
+        </div></div>
+        <div class="control-footer"><button class="quiet-button" type="button" (click)="resetCustomisation()">↺ Reset the design</button><span>JUST A PREVIEW, NO COMMITMENT.</span></div>
+        <div class="order-nudge"><span class="nudge-star">✳</span><div><strong>Have a specific idea?</strong><p>Tell us what you're planning and we'll take it from here.</p><a [routerLink]="['/start']" [queryParams]="{ design: invitation.slug, occasion: invitation.category }">Make this invitation mine <span>↗</span></a></div></div>
+      </div>
+      <div class="live-preview-column">
+        <div class="live-preview-header"><span><span class="live-dot"></span> LIVE PREVIEW</span><button type="button" (click)="copyPreviewLink()">Share this demo <span>↗</span></button></div>
+        <div class="invite-stage" [class.invite-stage--midnight]="selectedPalette.name === 'Midnight'">
+          <div class="stage-sticker"><span>THE</span><strong>good<br>stuff</strong><span>IS HERE ✳</span></div>
+          <div class="stage-paper"><ms-invite-art [invitation]="invitation" [large]="true" [titleOverride]="previewTitle" [dateOverride]="previewDate" [customPalette]="selectedPalette" /></div>
+          <span class="stage-caption">A LITTLE INVITATION, A LOT OF FEELING.</span>
+        </div>
+        <div class="preview-actions"><button type="button" class="button button--dark" (click)="detailsOpen = !detailsOpen">{{ detailsOpen ? 'Back to the cover' : 'Open the invitation' }} <span>{{ detailsOpen ? '↖' : '↗' }}</span></button><span>Try it. Tap around. See what works.</span></div>
+        <div class="opened-invitation" *ngIf="detailsOpen">
+          <div class="opened-header"><span class="eyebrow"><span class="eyebrow-dash"></span> YOU'RE ON THE LIST (SORT OF)</span><span class="opened-star">✳</span></div>
+          <h2>We saved you<br>a <em>little moment.</em></h2>
+          <p class="opened-intro">A gathering of our favourite people, a few happy details, and a day we'd love to share with you.</p>
+          <div class="event-detail-row"><span class="event-icon">◷</span><div><small>WHEN</small><strong>{{ previewDate || invitation.artDate }}</strong><span>Come a little early. Stay a little late.</span></div></div>
+          <div class="event-detail-row"><span class="event-icon">⌖</span><div><small>WHERE</small><strong>A lovely place, Hyderabad</strong><span>Full directions would live right here.</span></div></div>
+          <div class="rsvp-demo"><span class="field-label">CAN YOU MAKE IT?</span><div class="rsvp-buttons"><button type="button" (click)="respond('yes')" [class.rsvp-selected]="rsvpResponse.startsWith('Lovely')">Joyfully, yes! <span>♡</span></button><button type="button" (click)="respond('no')" [class.rsvp-selected]="rsvpResponse.startsWith('No worries')">Can't make it <span>↗</span></button></div><p *ngIf="rsvpResponse" class="rsvp-note" role="status">{{ rsvpResponse }}</p><p class="demo-disclaimer">Demo only: responses are not stored or sent to anyone.</p></div>
+        </div>
+        <p *ngIf="copyMessage" class="copy-message" role="status">{{ copyMessage }}</p>
+      </div>
+    </div>
+    <div class="preview-bottom-cta"><span class="bottom-asterisk">✳</span><div><strong>Every good invitation starts somewhere.</strong><p>This one's just a sketch. Tell us your occasion and we'll make it yours.</p></div><a class="button button--outline" [routerLink]="['/start']" [queryParams]="{ design: invitation.slug, occasion: invitation.category }">Start with this design <span>↗</span></a></div>
+  </div>
+</section>

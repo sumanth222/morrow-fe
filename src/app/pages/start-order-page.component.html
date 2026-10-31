@@ -1,0 +1,224 @@
+<section class="start-page">
+  <div class="start-shell">
+    <a class="back-link" routerLink="/">← Back to Morrow</a>
+
+    <div class="start-layout">
+      <!-- A personal welcome, not another step before the form -->
+      <aside class="welcome-panel">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> A LITTLE NOTE FROM MORROW</span>
+
+        <h1>An invitation is a way of saying <em>you matter.</em></h1>
+
+        <p class="welcome-lede">
+          “I thought of you.” “I saved you a place.”
+          “This moment wouldn’t be the same without you.”
+        </p>
+
+        <p class="welcome-description">
+          The best celebrations are about more than a date on the calendar.
+          They’re about the people who show up, the stories you share, and the
+          connections that grow a little stronger each time you gather.
+          We make invitations that carry that feeling from the very first hello.
+        </p>
+
+        <div class="welcome-art" aria-label="An example invitation made by Morrow Studio">
+          <div class="welcome-art-backdrop" aria-hidden="true"></div>
+          <div class="welcome-art-paper">
+            <span class="welcome-art-overline">A THOUGHT, MADE TANGIBLE</span>
+            <ms-invite-art [invitation]="sideInvitation" [large]="true" />
+            <div class="welcome-art-stamp">
+              <span>MADE WITH</span>
+              <strong>✳</strong>
+              <span>PEOPLE IN MIND</span>
+            </div>
+          </div>
+          <div class="welcome-art-caption">
+            <span>THE FIRST HELLO · MORROW STUDIO</span>
+            <span>Some moments begin with a note.</span>
+          </div>
+        </div>
+
+        <div class="welcome-promise">
+          <span aria-hidden="true">✳</span>
+          <p><strong>People first. Always.</strong><br>
+            We listen to what matters to you before we think about design.</p>
+        </div>
+
+        <a class="explore-link" routerLink="/explore">
+          Still finding your style? Explore invitation ideas <span aria-hidden="true">↗</span>
+        </a>
+      </aside>
+
+      <!-- The form is immediately visible. No extra CTA or intermediate step. -->
+      <main class="form-panel">
+        <div class="form-heading">
+          <span class="form-kicker">LET’S MAKE ROOM FOR YOUR PEOPLE</span>
+          <h2>Tell us a little about <em>your gathering.</em></h2>
+          <p>
+            No perfect plan needed. Share a few details and we’ll take it from
+            there, together.
+          </p>
+        </div>
+
+        <form class="brief-form" #briefForm="ngForm"
+              (ngSubmit)="submitBrief(briefForm)" novalidate>
+          <div class="form-group">
+            <div class="group-heading">
+              <span>01</span>
+              <div>
+                <h3>First, how can we reach you?</h3>
+                <p>So we know who we’re making this with.</p>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Your name <span>*</span></label>
+                <input id="name" name="name" type="text" class="form-input"
+                       [(ngModel)]="brief.name" required minlength="2"
+                       maxlength="120" autocomplete="name"
+                       placeholder="The name we should know you by">
+                <small class="field-error"
+                       *ngIf="briefForm.controls['name']?.touched && briefForm.controls['name']?.invalid">
+                  Please add your name.
+                </small>
+              </div>
+
+              <div class="form-field">
+                <label for="email">Email address <span>*</span></label>
+                <input id="email" name="email" type="email" class="form-input"
+                       [(ngModel)]="brief.email" required email
+                       maxlength="254" autocomplete="email"
+                       placeholder="Where we can write to you">
+                <small class="field-error"
+                       *ngIf="briefForm.controls['email']?.touched && briefForm.controls['email']?.invalid">
+                  Please add a valid email address.
+                </small>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="phoneNumber">Phone number <span>*</span></label>
+              <input id="phoneNumber" name="phoneNumber" type="tel" class="form-input"
+                     [(ngModel)]="brief.phoneNumber" required
+                     pattern="^(?=(?:\D*\d){7,15}\D*$)\+?[0-9][0-9(). \-]{5,28}[0-9]$"
+                     minlength="7" maxlength="30" autocomplete="tel" inputmode="tel"
+                     placeholder="+91 98765 43210">
+              <small class="field-hint">Include your country code if you’re outside India.</small>
+              <small class="field-error"
+                     *ngIf="briefForm.controls['phoneNumber']?.touched && briefForm.controls['phoneNumber']?.invalid">
+                Enter a valid phone number with 7–15 digits.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="group-heading">
+              <span>02</span>
+              <div>
+                <h3>What are we celebrating?</h3>
+                <p>A little context helps us imagine it with you.</p>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="occasion">The occasion <span>*</span></label>
+                <select id="occasion" name="occasion" class="form-input"
+                        [(ngModel)]="brief.occasion" required>
+                  <option value="" disabled>Choose your gathering</option>
+                  <option *ngFor="let option of occasionOptions" [value]="option.label">
+                    {{ option.label }}
+                  </option>
+                  <option value="Other celebration">Something else entirely</option>
+                </select>
+                <small class="field-error"
+                       *ngIf="briefForm.controls['occasion']?.touched && briefForm.controls['occasion']?.invalid">
+                  Choose an occasion to continue.
+                </small>
+              </div>
+
+              <div class="form-field">
+                <label for="date">When’s the day? <span class="optional">IF YOU KNOW</span></label>
+                <input id="date" name="eventDate" type="date" class="form-input"
+                       [(ngModel)]="brief.eventDate">
+                <small class="field-hint">A rough date is perfectly fine.</small>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="package">What kind of invitation are you imagining?</label>
+              <select id="package" name="package" class="form-input"
+                      [(ngModel)]="brief.package">
+                <option *ngFor="let option of packageOptions" [value]="option.value">
+                  {{ option.label }}
+                </option>
+              </select>
+              <small class="field-hint">Not sure? Choose “help me choose”. We can work it out together.</small>
+            </div>
+          </div>
+
+          <div class="form-group form-group--last">
+            <div class="group-heading">
+              <span>03</span>
+              <div>
+                <h3>Anything else we should know?</h3>
+                <p>Only share what you feel like. We can figure out the rest together.</p>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="design">A design, mood or idea you like <span class="optional">OPTIONAL</span></label>
+              <input id="design" name="design" type="text" class="form-input"
+                     [(ngModel)]="brief.design"
+                     placeholder="A design name, a link, or ‘surprise me’">
+            </div>
+
+            <div class="form-field">
+              <label for="notes">A note about the people or plans <span class="optional">OPTIONAL</span></label>
+              <textarea id="notes" name="styleNotes" class="form-input form-textarea" rows="3"
+                        [(ngModel)]="brief.styleNotes"
+                        placeholder="The feeling, colours, events or little details that matter to you…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-consent">
+            <span class="consent-flower" aria-hidden="true">✳</span>
+            <p>
+              We’ll use your details to respond to this enquiry and talk through
+              your invitation. No mailing lists, no noise.
+            </p>
+          </div>
+
+          <button type="submit" class="button button--primary submit-button"
+                  [disabled]="isSubmitting || submissionSuccess">
+            {{ submissionSuccess ? 'Your note is with us' : (isSubmitting ? 'Sending your note…' : 'Send a note to Morrow') }}
+            <span aria-hidden="true">↗</span>
+          </button>
+
+          <p class="form-footnote">
+            No payment. No pressure. We’ll talk through the idea, scope and price before anything begins.
+          </p>
+
+          <div *ngIf="submissionSuccess" class="submit-notice" role="status">
+            <strong>Thank you for inviting us in.</strong>
+            <p>
+              Your note has reached us{{ submittedInquiryId ? ' · reference #' + submittedInquiryId : '' }}.
+              We’re glad you thought of Morrow. We’ll be in touch soon.
+            </p>
+          </div>
+
+          <div *ngIf="apiError" class="submit-notice submit-notice--error" role="alert">
+            <strong>Your note hasn’t reached us just yet.</strong>
+            <p>{{ apiError }}</p>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <footer class="start-footer">
+      <span aria-hidden="true">✳</span>
+      <p>For the moments that bring us closer. <strong>Morrow Studio</strong></p>
+    </footer>
+  </div>
+</section>

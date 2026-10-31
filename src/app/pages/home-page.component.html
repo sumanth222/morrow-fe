@@ -1,0 +1,106 @@
+<section class="hero-section">
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="shell hero-layout">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> A DIGITAL INVITATION STUDIO</div>
+      <h1>For the moments<br>that bring us<br><em>together.</em></h1>
+      <p class="hero-lede">A little invitation can hold a whole lot of feeling. We make thoughtful digital invites and tiny celebration websites for life's good bits.</p>
+      <div class="hero-actions">
+        <a class="button button--primary hero-primary-cta" routerLink="/start">Start your invitation <span aria-hidden="true">↗</span></a>
+        <a class="button button--outline hero-secondary-cta" routerLink="/explore">Explore invitation ideas <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-footnote"><span class="little-sun" aria-hidden="true">✳</span><span>Made for real people, real plans<br>and really good days.</span></div>
+    </div>
+
+    <div class="hero-artwork" aria-label="Example wedding invitation design">
+      <div class="hero-art-orb hero-art-orb--one" aria-hidden="true"></div>
+      <div class="hero-art-orb hero-art-orb--two" aria-hidden="true"></div>
+      <div class="hero-paper-back"><span>THE GOOD STUFF IS IN THE DETAILS</span><span class="back-flower" aria-hidden="true">✳</span></div>
+      <div class="hero-main-paper"><ms-invite-art [invitation]="heroInvitation" [large]="true" /></div>
+      <div class="hero-note hero-note--top"><span class="note-spark" aria-hidden="true">✳</span><span>Made with<br><em>a little love</em></span></div>
+      <div class="hero-note hero-note--bottom"><span class="note-line"></span><span>YOUR DAY,<br>YOUR WAY.</span></div>
+      <span class="hero-index">A LITTLE SOMETHING<br>BY MORROW STUDIO · 001</span>
+    </div>
+  </div>
+  <div class="hero-bottom shell"><span>GOOD THINGS ARE WORTH GATHERING FOR</span><span class="hero-bottom-flower" aria-hidden="true">✳</span><span>SCROLL A LITTLE, FIND A LOT <span aria-hidden="true">↓</span></span></div>
+</section>
+
+<section class="home-shortcuts section-pad">
+  <div class="shell">
+    <div class="home-shortcuts-heading">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dash"></span> START WITH THE MOMENT</span>
+        <h2>What are we <em>celebrating?</em></h2>
+      </div>
+      <a class="text-link" routerLink="/explore">See all invitation ideas <span>↗</span></a>
+    </div>
+    <div class="home-shortcuts-grid">
+      <a routerLink="/explore" [queryParams]="{ occasion: 'wedding' }"><span>01</span><strong>Weddings & engagements</strong><i>↗</i></a>
+      <a routerLink="/explore" [queryParams]="{ occasion: 'birthday' }"><span>02</span><strong>Birthdays & milestones</strong><i>↗</i></a>
+      <a routerLink="/explore" [queryParams]="{ occasion: 'baby' }"><span>03</span><strong>Baby showers & new arrivals</strong><i>↗</i></a>
+      <a routerLink="/explore" [queryParams]="{ occasion: 'home' }"><span>04</span><strong>Housewarmings & more</strong><i>↗</i></a>
+      <a routerLink="/explore" [queryParams]="{ occasion: 'corporate' }"><span>05</span><strong>Work & community events</strong><i>↗</i></a>
+    </div>
+    <p class="home-shortcuts-note">Something else entirely? <a routerLink="/start">Tell us what you're planning.</a></p>
+  </div>
+</section>
+
+<section class="weddingos-feature-section section-pad" id="featured-work">
+  <div class="shell weddingos-feature-layout">
+    <div class="weddingos-feature-art" aria-hidden="true">
+      <div class="weddingos-feature-back">
+        <span class="wos-feature-kicker">TOGETHER WITH OUR FAMILIES</span>
+        <span class="wos-feature-monogram">S <i>&</i> A</span>
+        <span class="wos-feature-headline">A new chapter<br><em>begins here.</em></span>
+        <span class="wos-feature-date">A CELEBRATION OF LOVE · HYDERABAD</span>
+        <span class="wos-feature-flower">✳</span>
+      </div>
+      <div class="weddingos-feature-phone">
+        <div class="wos-feature-phone-notch"></div>
+        <span class="wos-feature-phone-kicker">✳ WEDDINGOS</span>
+        <span class="wos-feature-phone-title">The days we'll<br><em>remember.</em></span>
+        <div class="wos-feature-mini-event wos-feature-mini-event--one"><small>01 · THE COLOURFUL ONE</small><strong>Haldi</strong></div>
+        <div class="wos-feature-mini-event wos-feature-mini-event--two"><small>02 · WHEN THE LIGHTS COME ON</small><strong>Afterparty</strong></div>
+        <div class="wos-feature-mini-event wos-feature-mini-event--three"><small>03 · THE BIG YES</small><strong>Wedding</strong></div>
+      </div>
+      <span class="weddingos-feature-stamp">REAL PROJECT<br><strong>✳</strong><br>REAL FEELING</span>
+    </div>
+    <div class="weddingos-feature-copy">
+      <span class="eyebrow"><span class="eyebrow-dash"></span> A LITTLE PROOF OF WHAT'S POSSIBLE</span>
+      <h2>Made for one<br>very special <em>“I do.”</em></h2>
+      <p>WeddingOS is a wedding website project we built around the whole celebration, not just the invitation. Think a warm welcome, a playful event timeline and practical guest details, all designed to feel lovely on a phone.</p>
+      <div class="weddingos-feature-points">
+        <div><span>01</span><p><strong>A theme with a point of view</strong><br>Terracotta, ivory and thoughtful little moments.</p></div>
+        <div><span>02</span><p><strong>Every event has its place</strong><br>Haldi, afterparty and wedding in one clear flow.</p></div>
+        <div><span>03</span><p><strong>Pretty, but practical</strong><br>Guest details and RSVP designed for mobile.</p></div>
+      </div>
+      <div class="weddingos-feature-actions">
+        <a class="button button--outline" routerLink="/our-work/wedding-os">Step inside WeddingOS <span aria-hidden="true">↗</span></a>
+        <a class="button button--primary" routerLink="/start" [queryParams]="{ design: 'WeddingOS-inspired wedding website', package: 'full-story', occasion: 'Weddings' }">Create your own version <span aria-hidden="true">→</span></a>
+      </div>
+      <span class="weddingos-feature-caption">A REAL PROJECT FEATURED IN THE MORROW STUDIO PORTFOLIO</span>
+    </div>
+  </div>
+</section>
+
+<section class="home-journey-section section-pad">
+  <div class="shell home-journey-layout">
+    <div class="home-journey-intro">
+      <span class="eyebrow"><span class="eyebrow-dash"></span> NO COMPLICATED PROCESS</span>
+      <h2>Three little steps.<br><em>One lovely invite.</em></h2>
+      <p>Choose a starting point, share a few details and we'll take it from there. No account, design software or big decisions needed upfront.</p>
+      <a class="text-link" routerLink="/how-it-works">See how it works <span>↗</span></a>
+    </div>
+    <div class="home-journey-steps">
+      <div><span>01</span><p><strong>Find your starting point</strong><br>Browse ideas or come with your own.</p></div>
+      <div><span>02</span><p><strong>Tell us the essentials</strong><br>A short enquiry is all it takes.</p></div>
+      <div><span>03</span><p><strong>Approve and share</strong><br>We'll confirm the scope, then make it yours.</p></div>
+      <a class="home-package-link" routerLink="/packages"><span>Prefer to see prices first?</span><strong>Explore packages from ₹599 ↗</strong></a>
+    </div>
+  </div>
+</section>
+
+<section class="closing-section">
+  <div class="closing-flower closing-flower--one" aria-hidden="true">✳</div><div class="closing-flower closing-flower--two" aria-hidden="true">✳</div>
+  <div class="shell closing-content"><span class="eyebrow eyebrow--light"><span class="eyebrow-dot"></span> SOMETHING GOOD IS HAPPENING</span><h2>So, what are<br>we <em>celebrating?</em></h2><p>Tell us the who, the when, the why. We'll help with the lovely little how.</p><a class="button button--cream" routerLink="/start">Let's make an invitation <span aria-hidden="true">↗</span></a><span class="closing-footnote">NO BIG SPEECH. JUST A GOOD PLACE TO START.</span></div>
+</section>

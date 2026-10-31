@@ -1,0 +1,75 @@
+<section class="subpage-intro section-pad">
+  <div class="shell subpage-intro-inner">
+    <a class="back-link" routerLink="/">← Back to Morrow</a>
+    <span class="eyebrow"><span class="eyebrow-dot"></span> THE MORROW COLLECTION</span>
+    <h1>Find an invitation<br>that feels <em>like you.</em></h1>
+    <p>Choose the celebration, explore a few directions and open any design to play with the details. When something feels right, make it yours.</p>
+    <div class="subpage-actions">
+      <a class="button button--primary" routerLink="/start">Start with your own idea <span>↗</span></a>
+      <a class="text-link" routerLink="/packages">See packages and prices <span>→</span></a>
+    </div>
+  </div>
+</section>
+<section class="occasion-section section-pad" id="occasions">
+  <div class="shell">
+    <div class="section-heading section-heading--split">
+      <div><span class="eyebrow"><span class="eyebrow-dash"></span> EVERY REASON TO GATHER</span><h2>Big day, little day.<br><em>We love them all.</em></h2></div>
+      <p>From the once-in-a-lifetime kind to the “just because” kind. Find an invitation that feels like you.</p>
+    </div>
+    <div class="occasion-grid">
+      <button class="occasion-tile occasion-tile--wedding" type="button" (click)="chooseOccasion('wedding')">
+        <div class="occasion-art"><ms-invite-art [invitation]="heroInvitation" /></div>
+        <span class="occasion-arrow" aria-hidden="true">↗</span><span class="occasion-count">01 / FOR THE FOREVER KIND</span><span class="occasion-title">Weddings & yes-days</span>
+      </button>
+      <button class="occasion-tile occasion-tile--birthday" type="button" (click)="chooseOccasion('birthday')">
+        <div class="occasion-art occasion-art--tilt"><ms-invite-art [invitation]="birthdayInvitation" /></div>
+        <span class="occasion-arrow" aria-hidden="true">↗</span><span class="occasion-count">02 / FOR THE CANDLE BLOWERS</span><span class="occasion-title">Birthdays & big wishes</span>
+      </button>
+      <button class="occasion-tile occasion-tile--baby" type="button" (click)="chooseOccasion('baby')">
+        <div class="occasion-art"><ms-invite-art [invitation]="babyInvitation" /></div>
+        <span class="occasion-arrow" aria-hidden="true">↗</span><span class="occasion-count">03 / FOR THE LITTLE MIRACLES</span><span class="occasion-title">Baby showers & new arrivals</span>
+      </button>
+      <button class="occasion-tile occasion-tile--home" type="button" (click)="chooseOccasion('home')">
+        <div class="occasion-art occasion-art--tilt"><ms-invite-art [invitation]="homeInvitation" /></div>
+        <span class="occasion-arrow" aria-hidden="true">↗</span><span class="occasion-count">04 / FOR THE NEW CHAPTERS</span><span class="occasion-title">Housewarmings & more</span>
+      </button>
+    </div>
+    <div class="occasion-note"><span aria-hidden="true">↳</span> Planning something else entirely? We like a good plot twist. <a routerLink="/start">Tell us about it.</a></div>
+  </div>
+</section>
+<section class="collection-section section-pad" id="experiences">
+  <div class="shell">
+    <div class="section-heading section-heading--center">
+      <span class="eyebrow"><span class="eyebrow-dash"></span> A FEW WAYS TO SAY “COME OVER” <span class="eyebrow-dash"></span></span>
+      <h2>Meet the <em>little lovelies.</em></h2>
+      <p>Every design is a starting point. Play with it, make it yours, then send it out into the world.</p>
+    </div>
+    <div class="filter-bar" aria-label="Filter designs by occasion">
+      <button *ngFor="let filter of occasionFilters" type="button" class="filter-chip" [class.filter-chip--active]="selectedFilter === filter.value" (click)="selectedFilter = filter.value">{{ filter.label }}</button>
+    </div>
+    <div class="design-grid" *ngIf="filteredInvitations.length; else noDesigns">
+      <article class="design-card" *ngFor="let design of filteredInvitations; trackBy: trackInvitation; let i = index" [style.--card-delay]="(i * 60) + 'ms'">
+        <a class="design-visual" [routerLink]="['/preview', design.slug]" [attr.aria-label]="'Play with ' + design.title + ' invitation'">
+          <span class="design-tag" *ngIf="design.badge">{{ design.badge }}</span>
+          <ms-invite-art [invitation]="design" />
+          <span class="design-hover-action">Play with this design <span aria-hidden="true">↗</span></span>
+        </a>
+        <div class="design-meta"><div><span class="design-category">{{ design.occasionLabel }}</span><h3>{{ design.title }}</h3></div><span class="design-price">from {{ formatPrice(design.priceFrom) }}</span></div>
+        <p class="design-description">{{ design.description }}</p>
+        <div class="design-card-actions">
+          <a class="design-link" [routerLink]="['/preview', design.slug]">Play with this design <span aria-hidden="true">→</span></a>
+          <a class="design-order-link" [routerLink]="['/start']" [queryParams]="{ design: design.slug, occasion: design.category }" aria-label="Start an enquiry using {{ design.title }}">Use this design ↗</a>
+        </div>
+      </article>
+    </div>
+    <ng-template #noDesigns><p class="empty-state">We're sketching something for this occasion. <a routerLink="/start">Let's make yours first.</a></p></ng-template>
+    <div class="collection-footnote"><span class="collection-flower" aria-hidden="true">✳</span><span>These are just the first few ideas.<br><strong>Your occasion can be its own thing.</strong></span><a class="button button--outline" routerLink="/start">Make something just for me <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+
+<section class="explore-next-step section-pad">
+  <div class="shell explore-next-step-inner">
+    <div><span class="eyebrow"><span class="eyebrow-dash"></span> NOTHING QUITE YOURS?</span><h2>We can start with a <em>blank page.</em></h2><p>Tell us what you're celebrating and the feeling you're after. We'll help shape the invitation around it.</p></div>
+    <a class="button button--primary" routerLink="/start">Send us your idea <span>↗</span></a>
+  </div>
+</section>
