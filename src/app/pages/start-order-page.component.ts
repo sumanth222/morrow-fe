@@ -98,6 +98,15 @@ export class StartOrderPageComponent implements OnInit {
         this.isSubmitting = false;
         this.submissionSuccess = true;
         this.submittedInquiryId = response.id;
+
+        const w = window as Window & {
+          dataLayer?: Array<Record<string, unknown>>;
+        };
+
+        w.dataLayer = w.dataLayer ?? [];
+        w.dataLayer.push({
+          event: 'morrow_lead_submitted'
+        });
       },
       error: (error: unknown) => {
         this.isSubmitting = false;
